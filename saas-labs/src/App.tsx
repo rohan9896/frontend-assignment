@@ -3,6 +3,7 @@ import { Table } from "./components/table";
 import { IProjectsStatsItem } from "./models";
 import { usePagination } from "./hooks/usePagination";
 import { API_URL } from "./constants";
+import { Paginate } from "./components/paginate";
 
 function App() {
   const [data, setData] = useState<IProjectsStatsItem[]>([]);
@@ -45,17 +46,14 @@ function App() {
       <div style={{ padding: "1rem" }}>
         <Table tableData={paginatedData} isLoading={isLoading} />
       </div>
-      <div className="flex flex-justify-center flex-align-center flex-gap-1">
-        <button disabled={!isPrevPageAvailable} onClick={goToPrevPage}>
-          Prev
-        </button>
-        <span>
-          Page {currentPage} of {totalNumberOfPages} pages
-        </span>
-        <button disabled={!isNextPageAvailable} onClick={goToNextPage}>
-          Next
-        </button>
-      </div>
+      <Paginate
+        currentPage={currentPage}
+        totalNumberOfPages={totalNumberOfPages}
+        isPrevPageAvailable={isPrevPageAvailable}
+        isNextPageAvailable={isNextPageAvailable}
+        goToPrevPage={goToPrevPage}
+        goToNextPage={goToNextPage}
+      />
     </div>
   );
 }
