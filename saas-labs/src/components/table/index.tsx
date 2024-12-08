@@ -1,9 +1,9 @@
-import React from "react";
+// import React from "react";
 import { IProjectsStatsItem } from "../../models";
-// import styles from "./index.module.css";
-const styles = {
-  loadingCell: "",
-};
+import styles from "./index.module.css";
+// const styles = {
+//   loadingCell: "",
+// };
 
 interface ITableProps {
   tableData: IProjectsStatsItem[];
