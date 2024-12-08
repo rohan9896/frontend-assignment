@@ -1,5 +1,9 @@
+import React from "react";
 import { IProjectsStatsItem } from "../../models";
-import styles from "./index.module.css";
+// import styles from "./index.module.css";
+const styles = {
+  loadingCell: "",
+};
 
 interface ITableProps {
   tableData: IProjectsStatsItem[];
@@ -37,7 +41,7 @@ const Table = (props: ITableProps) => {
           tableData.length > 0 &&
           tableData.map((item) => {
             return (
-              <tr role="row" key={item["s.no"]}>
+              <tr data-testid="dataRow" role="row" key={item["s.no"]}>
                 <td role="cell">{item["s.no"] + 1}.</td>
                 <td role="cell">{item["percentage.funded"]}</td>
                 <td role="cell">{item["amt.pledged"]}</td>

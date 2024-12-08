@@ -46,14 +46,16 @@ function App() {
       <div style={{ padding: "1rem" }}>
         <Table tableData={paginatedData} isLoading={isLoading} />
       </div>
-      <Paginate
-        currentPage={currentPage}
-        totalNumberOfPages={totalNumberOfPages}
-        isPrevPageAvailable={isPrevPageAvailable}
-        isNextPageAvailable={isNextPageAvailable}
-        goToPrevPage={goToPrevPage}
-        goToNextPage={goToNextPage}
-      />
+      {data.length > 0 && (
+        <Paginate
+          currentPage={currentPage}
+          totalNumberOfPages={totalNumberOfPages}
+          isPrevPageAvailable={isPrevPageAvailable}
+          isNextPageAvailable={isNextPageAvailable}
+          goToPrevPage={goToPrevPage}
+          goToNextPage={goToNextPage}
+        />
+      )}
     </div>
   );
 }
